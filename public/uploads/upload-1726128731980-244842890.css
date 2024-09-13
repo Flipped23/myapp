@@ -1,0 +1,60 @@
+/*style.css文件*/
+/*class 为style1的样式，字体大小为large，字体颜色为橙黄色*/
+.style1{
+    font-size: large;
+    color: #c233ff;
+}
+
+/*class 为style2的样式，字体颜色为橙黄*/
+.style2{
+    color: #c233ff;
+}
+
+/*宽度为500px，高度为240px*/
+.style3{
+    width: 500px;
+    height: 240px;
+}
+
+/*宽度为1500px，高度为50px*/
+.style4{
+    width: 1500px;
+    height: 50px;
+}
+
+/*字体类型为 黑体*/
+.style5{
+    font-family: 黑体;
+}
+
+/*宽度为250px，高度10px*/
+.style6{
+    width: 250px;
+    height: 10px;
+    font-family: 黑体;
+}
+
+body{
+    border: #7e00cc 3px solid;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 60%;
+    height: 1300px;
+    padding: 20px;
+}
+
+/*定义table样式*/
+table{
+    border-style: none;
+    border-color: inherit;      /* 表格边框样式，颜色宽度 */
+    border-width: 5px;
+    width: 100%;
+    height: 10%;
+    padding: 5px;
+}
+
+/*定义h2样式*/
+.h2{
+    color: #000000;                 /* 颜色黑色 */
+    background-color: #FFFF33;      /* 背景颜色橙黄 */
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PDF Viewer</title>
+  <script type="module">
+    console.log('Script loaded');
+    const url = '<%= pdfUrl %>';
+    console.log('PDF URL:', url);
+
+    import { getDocument, GlobalWorkerOptions } from '/pdfjs-dist/build/pdf.mjs';
+    GlobalWorkerOptions.workerSrc = '/pdfjs-dist/build/pdf.worker.mjs';
+
+    const loadingTask = getDocument(url);
+    loadingTask.promise.then(pdf => {
+      console.log('PDF loaded');
+      const pageNumber = 1;
+      pdf.getPage(pageNumber).then(page => {
+        console.log('Page loaded');
+        const scale = 1.5;
+        const viewport = page.getViewport({ scale });
+        const canvas = document.createElement('canvas');
+        const context = canvas.getContext('2d');
+        canvas.height = viewport.height;
+        canvas.width = viewport.width;
+        document.getElementById('pdf-viewer').appendChild(canvas);
+        const renderContext = {
+          canvasContext: context,
+          viewport: viewport
+        };
+        page.render(renderContext).promise.then(() => {
+          console.log('Page rendered');
+        }).catch(error => {
+          console.error('Error rendering page:', error);
+        });
+      }).catch(error => {
+        console.error('Error getting page:', error);
+      });
+    }).catch(error => {
+      console.error('Error loading PDF:', error);
+    });
+  </script>
+  <style>
+    #pdf-viewer {
+      width: 100%;
+      height: 100vh;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+  <div id="pdf-viewer"></div>
+</body>
+</html>

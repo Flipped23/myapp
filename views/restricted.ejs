@@ -1,0 +1,10 @@
+<%- include('head', { title: 'Restricted Area' }) -%>
+
+<h1>Restricted Area</h1>
+    <p>Welcome, <%= user.username %>!</p>
+    <p><a href="/logout">Logout</a></p>
+    <p><a href="/contact">Contact Staff</a></p>
+    <p><a href="/upload">Upload File</a></p>
+    <p><a href="/resources">Get resources</a></p>
+
+<%- include('foot') -%>

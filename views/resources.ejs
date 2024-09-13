@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resources</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    li {
+      margin: 10px 0;
+    }
+    a {
+      text-decoration: none;
+      color: #007BFF;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h1>PDF Resources</h1>
+  <ul>
+    <% pdfs.forEach(function(pdf) { %>
+      <li>
+        <a href="/resources/<%= pdf %>">预览 <%= pdf %></a>
+        | <a href="/download/<%= pdf %>">下载</a>
+      </li>
+    <% }); %>
+  </ul>
+  <a href="/restricted">返回受限区域</a>
+</body>
+</html>
